@@ -3,7 +3,7 @@
 #
 # Happy Coding!
 
-service: coding-challenge-cities-autocomplete
+service: coding-challenge-cities-score
 
 provider:
   name: aws
@@ -11,10 +11,10 @@ provider:
 
 functions:
   suggestions:
-    handler: functions/suggestions.handler
+    handler: functions/score.scoreSuggestions
     events:
       - http:
-          path: suggestions
+          path: score
           method: get
 
 plugins:
