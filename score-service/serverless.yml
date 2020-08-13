@@ -15,7 +15,11 @@ functions:
     events:
       - http:
           path: score
-          method: get
+          method: post
+
+custom:
+  serverless-offline:
+    httpPort: 4000
 
 plugins:
   - serverless-offline

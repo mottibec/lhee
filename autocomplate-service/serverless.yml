@@ -17,6 +17,10 @@ functions:
           path: autocomplete
           method: get
 
+custom:
+  serverless-offline:
+    httpPort: 5000        
+
 plugins:
   - serverless-offline
   - serverless-jest-plugin

@@ -9,7 +9,7 @@ const getSuggestions = async event => {
   const { q, latitude, longitude } = event.queryStringParameters;
 
   //service proxy (not sure what the best practice in serverless is)
-  const autocompleteService = new AutocomplateServiceProxy();
+  const autocompleteService = new AutocomplateServiceProxy("http://localhost:3000/dev");
   const scoreService = new ScoreServiceProxy();
 
   //call autocompleteService to get an array of cities that start with the q param

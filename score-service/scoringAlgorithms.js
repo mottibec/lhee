@@ -6,15 +6,15 @@ class ScoreAlgorithem {
 
 //score by the distance of the parameter from the complated loaction name
 class NameScoreAlgorithem extends ScoreAlgorithem {
-    calculateScore(q, suggestion) {
-        const diff = suggestion.name.length - q.length;
+    calculateScore(suggestion, options) {
+        const diff = suggestion.name.length - options.q.length;
         return diff * 0.1;
     }
 }
 
 //score by the population of the location
 class PopularityScoreAlgorithem extends ScoreAlgorithem {
-    calculateScore(suggestion) {
+    calculateScore(suggestion, options) {
         const range = suggestion.population > 0;
         return range * 0.1;
     }
@@ -22,8 +22,8 @@ class PopularityScoreAlgorithem extends ScoreAlgorithem {
 
 //score by the distance from the location
 class DistanceScoreAlgorithem extends ScoreAlgorithem {
-    calculateScore(location, suggestion) {
-        const distance = location.distanceFrom(suggestion.location);
+    calculateScore(suggestion, options) {
+        const distance = options.location.distanceFrom(suggestion.location);
         return distance * 0.1;
     }
 }

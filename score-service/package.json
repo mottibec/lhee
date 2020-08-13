@@ -1,5 +1,5 @@
 {
-  "name": "coding-challenge-cities-autocomplete",
+  "name": "coding-challenge-cities-score",
   "version": "1.0.0",
   "scripts": {
     "start": "./node_modules/.bin/serverless offline",
@@ -14,5 +14,8 @@
     "serverless": "^1.78.1",
     "serverless-jest-plugin": "^0.3.0",
     "serverless-offline": "^6.5.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
   }
 }

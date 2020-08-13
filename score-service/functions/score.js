@@ -5,8 +5,8 @@ module.exports.scoreSuggestions = async event => {
     console.log(event);
 
     // get querystring variables
-    const { suggestions, options } = event.queryStringParameters;
-
+    const { suggestions, options } = JSON.parse(event.body);
+    console.log('suggestions', suggestions)
     //check if we got any suggestions to score
     if (!Array.isArray(suggestions) || !suggestions.length) {
         return {
@@ -20,7 +20,7 @@ module.exports.scoreSuggestions = async event => {
 
     //for each suggestion execute all score algorithems and sum the results to a unified score
     const scoredSuggestions = suggestions.map(suggestion => {
-        const allScores = scoreAlgorithems.map(algo => algo.calculateScore(suggestion));
+        const allScores = scoreAlgorithems.map(algo => algo.calculateScore(suggestion, options));
         const score = allScores.reduce((scoreA, scoreB) => scoreA + scoreB);
         return {
             ...suggestion,
@@ -45,7 +45,7 @@ const getScoreAlgorithem = (options) => {
     ];
 
     //if the caller provided his location score by distance too
-    if (options.location) {
+    if (options && options.location) {
         defaultScoreAlgorithems.push(new DistanceScoreAlgorithem());
     }
     return defaultScoreAlgorithems;
