@@ -14,5 +14,9 @@
     "serverless": "^1.78.1",
     "serverless-jest-plugin": "^0.3.0",
     "serverless-offline": "^6.5.0"
+  },
+  "dependencies": {
+    "autosuggest-trie": "^2.1.1",
+    "csv-parser": "^2.3.3"
   }
 }

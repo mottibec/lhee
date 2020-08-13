@@ -1,3 +1,7 @@
+const csv = require('csv-parser')
+const fs = require('fs')
+const createTrie = require('autosuggest-trie');
+
 module.exports.autocompleteSuggestions = async event => {
 
   console.log(event);
@@ -5,11 +9,12 @@ module.exports.autocompleteSuggestions = async event => {
   // get querystring variables
   const { q } = event.queryStringParameters;
 
-  const trie = new Trie([]);
+  const cities = await getCtiesFromFile();
+  const trie = createTrie(cities, 'name');
 
   //use a trie to effisally retrive all locations beguigng with q
-  const autoComplateSuggestions = trie.find(q);
-
+  const autoComplateSuggestions = trie.getMatches(q);
+  
   // return 200 status code
   return {
     statusCode: 200,
@@ -18,11 +23,12 @@ module.exports.autocompleteSuggestions = async event => {
 
 }
 
-class Trie {
-  constructor(data) {
-
-  }
-  find(q) {
-    return []
-  }
+const getCtiesFromFile = () => {
+  return new Promise((resolve, reject) => {
+    const results = [];
+    fs.createReadStream('./data/cities.tsv')
+      .pipe(csv({ separator: '\t' }))
+      .on('data', (data) => results.push(data))
+      .on('end', () => resolve(results));
+  });
 }
