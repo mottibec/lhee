@@ -14,11 +14,9 @@ const getSuggestions = async event => {
 
   //call autocompleteService to get an array of cities that start with the q param
   const suggestions = await autocompleteService.getSuggestions(q);
-  console.log("suggestions", suggestions);
 
   //call the score service to score each item by multiple algorithems
   const scoredSuggestions = await scoreService.ScoreSuggestions(suggestions, q, latitude, longitude);
-  console.log("scoredSuggestions", scoredSuggestions);
 
   //order the results by the score
   const orderedResults = scoredSuggestions.sort((s1, s2) => s2.score - s1.score);

@@ -10,8 +10,8 @@ describe('GET /suggestions', () => {
   test('with a non-existent city', async () => {
 
     const response = await func.run({
-      queryStringParameters: { 
-        q: 'SomeRandomCity' 
+      queryStringParameters: {
+        q: 'SomeRandomCity'
       }
     });
 
@@ -19,6 +19,20 @@ describe('GET /suggestions', () => {
 
     expect(response.statusCode).toBe(200);
     expect(body).toEqual([]);
+
+  });
+
+  test('with existing city', async () => {
+
+    const response = await func.run({
+      queryStringParameters: {
+        q: 'mo'
+      }
+    });
+
+    const body = JSON.parse(response.body);
+    expect(response.statusCode).toBe(200);
+    expect(body.length).toBeGreaterThan(0);
 
   });
 

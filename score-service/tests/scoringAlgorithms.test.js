@@ -19,7 +19,7 @@ describe('score name algorithm', () => {
             "name": "name"
         };
         const options = {
-            "q": "nam",
+            "q": "na",
         };
         const score = algo.calculateScore(suggestion, options);
         expect(score).toBe(0.5);
@@ -35,6 +35,18 @@ describe('score name algorithm', () => {
         };
         const score = algo.calculateScore(suggestion, options);
         expect(score).toBe(0);
+    });
+
+    test('score teeest', async () => {
+        const algo = new NameScoreAlgorithem();
+        const suggestion = {
+            "name": "West Memphis, AR, US"
+        };
+        const options = {
+            "q": "West",
+        };
+        const score = algo.calculateScore(suggestion, options);
+        expect(score).toBeGreaterThan(0);
     });
 });
 

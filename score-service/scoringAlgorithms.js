@@ -19,8 +19,8 @@ class NameScoreAlgorithem extends ScoreAlgorithem {
         if (!options.q.length) {
             return 0;
         }
-        const score = 1 - (suggestion.name.length - options.q.length) * 0.1
-        return this.normalizeScore(score);
+        const diff = options.q.length / suggestion.name.length;
+        return this.normalizeScore(diff);
     }
 }
 
