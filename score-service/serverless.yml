@@ -20,6 +20,7 @@ functions:
 custom:
   serverless-offline:
     httpPort: 4000
+    lambdaPort: 4002
 
 plugins:
   - serverless-offline

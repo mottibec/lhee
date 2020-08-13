@@ -13,7 +13,8 @@ class ScoreServiceProxy {
                 longitude: longitude
             }
         }
-        return await axios.post(`${this.baseUrl}/score`, data);
+        const result = await axios.post(`${this.baseUrl}/score`, data);
+        return result.data;
     }
 }
 module.exports = ScoreServiceProxy;
