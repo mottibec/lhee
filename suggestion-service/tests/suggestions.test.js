@@ -1,7 +1,7 @@
 const jestPlugin = require('serverless-jest-plugin');
 const file = require('../functions/suggestions');
 
-const func = jestPlugin.lambdaWrapper.wrap(file, { handler: 'handler' });
+const func = jestPlugin.lambdaWrapper.wrap(file, { handler: 'getSuggestions' });
 
 describe('GET /suggestions', () => {
 

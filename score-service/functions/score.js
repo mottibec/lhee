@@ -1,4 +1,4 @@
-import { NameScoreAlgorithem, PopularityScoreAlgorithem, DistanceScoreAlgorithem } from './scoreAlgorithem'
+const { NameScoreAlgorithem, PopularityScoreAlgorithem, DistanceScoreAlgorithem } = require('../scoringAlgorithms');
 
 module.exports.scoreSuggestions = async event => {
 

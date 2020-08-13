@@ -1,9 +1,9 @@
 const jestPlugin = require('serverless-jest-plugin');
-const file = require('../functions/suggestions');
+const file = require('../functions/score');
 
 const func = jestPlugin.lambdaWrapper.wrap(file, { handler: 'handler' });
 
-describe('GET /suggestions', () => {
+describe('GET /score', () => {
 
   beforeAll(async () => { });
 

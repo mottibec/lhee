@@ -3,7 +3,7 @@ const file = require('../functions/suggestions');
 
 const func = jestPlugin.lambdaWrapper.wrap(file, { handler: 'handler' });
 
-describe('GET /suggestions', () => {
+describe('GET /autocomplate', () => {
 
   beforeAll(async () => { });
 
