@@ -21,7 +21,7 @@ module.exports.scoreSuggestions = async event => {
     //for each suggestion execute all score algorithems and sum the results to a unified score
     const scoredSuggestions = suggestions.map(suggestion => {
         const allScores = scoreAlgorithems.map(algo => algo.calculateScore(suggestion, options));
-        const score = allScores.reduce((scoreA, scoreB) => scoreA + scoreB) / 2;
+        const score = allScores.reduce((scoreA, scoreB) => scoreA + scoreB) / scoreAlgorithems.length;
         return {
             ...suggestion,
             score: score
