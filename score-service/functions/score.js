@@ -2,7 +2,7 @@ const { NameScoreAlgorithem, DistanceScoreAlgorithem } = require('../scoringAlgo
 
 module.exports.scoreSuggestions = async event => {
 
-    console.log(event);
+    console.log(event.body);
 
     // get querystring variables
     const { suggestions, options } = JSON.parse(event.body);

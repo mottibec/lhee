@@ -16,6 +16,9 @@ class ScoreAlgorithem {
 //score by the distance of the parameter from the complated loaction name
 class NameScoreAlgorithem extends ScoreAlgorithem {
     calculateScore(suggestion, options) {
+        if (!options.q.length) {
+            return 0;
+        }
         const score = 1 - (suggestion.name.length - options.q.length) * 0.1
         return this.normalizeScore(score);
     }
