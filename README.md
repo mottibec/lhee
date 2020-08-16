@@ -1,6 +1,6 @@
 # Lhee
 
-## Requirements
+## Endpoint
 
 A city autocomplete API
 - the endpoint is exposed at `/suggestions`
