@@ -1,8 +1,8 @@
 # Lhee
+A city autocomplete API
 
 ## Endpoint
 
-A city autocomplete API
 - the endpoint is exposed at `/suggestions`
 - the partial (or complete) search term is passed as a query string parameter `q`
 - the caller's location can optionally be supplied via query string parameters `latitude` and `longitude` to help improve relative scores
