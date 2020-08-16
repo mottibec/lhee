@@ -6,13 +6,11 @@ module.exports.autocompleteSuggestions = async event => {
 
   console.log(event);
 
-  // get querystring variables
+  // get query from query string
   const { q } = event.queryStringParameters;
 
   const cities = await getCtiesFromFile();
   const trie = createTrie(cities, 'name');
-
-  //use a trie to effisally retrive all locations beguigng with q
   const autoComplateSuggestions = trie.getMatches(q);
 
   // return 200 status code
