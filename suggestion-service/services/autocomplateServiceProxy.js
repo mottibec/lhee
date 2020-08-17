@@ -5,7 +5,9 @@ class AutocomplateServiceProxy {
         this.baseUrl = serviceUrl;
     }
     async getSuggestions(q) {
+        console.log(`calling autocomplate service at ${this.baseUrl}/autocomplete?q=${q}`);
         const result = await axios.get(`${this.baseUrl}/autocomplete?q=${q}`);
+        console.log(`score ${JSON.stringify(result)}`);
         return result.data;
     }
 }

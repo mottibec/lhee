@@ -13,7 +13,9 @@ class ScoreServiceProxy {
                 longitude: longitude
             }
         }
+        console.log(`calling score service at ${this.baseUrl}/score with ${JSON.stringify(data)}`);
         const result = await axios.post(`${this.baseUrl}/score`, data);
+        console.log(`score ${JSON.stringify(result)}`);
         return result.data;
     }
 }
