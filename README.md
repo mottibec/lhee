@@ -7,10 +7,6 @@ A city autocomplete API
 - the partial (or complete) search term is passed as a query string parameter `q`
 - the caller's location can optionally be supplied via query string parameters `latitude` and `longitude` to help improve relative scores
 - the endpoint returns a JSON response with an array of scored suggested matches
-    - the suggestions are sorted by descending score
-    - each suggestion has a score between 0 and 1 (inclusive) indicating confidence in the suggestion (1 is most confident)
-    - each suggestion has a name which can be used to disambiguate between similarly named locations
-    - each suggestion has a latitude and longitude
 
 #### Sample responses
 
